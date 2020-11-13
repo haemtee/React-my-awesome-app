@@ -1,3 +1,34 @@
 .App {
   text-align: center;
 }
+
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.App button#main {
+  background-color: green;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.App button#main.toggle {
+  background-color: red;
+  color: black;
+}
+
+.App button#main:hover {
+  background-color: lightgreen;
+  color: black;
+}
+.App button#main.toggle:hover {
+  background-color: salmon;
+  color: black;
+}

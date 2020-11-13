@@ -1,8 +1,6 @@
 import { useState } from "react";
-
 import "./App.css";
 import Person from "./Person/Person";
-//import { state } from "react";
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -36,16 +34,8 @@ const App = () => {
     setPersons(tempPersons);
   };
 
-  const styleButton = {
-    backgroundColor: "green",
-    color: "white",
-    font: "inherit",
-    border: "1px solid blue",
-    padding: "8px",
-    cursor: "pointer",
-  };
-
   let xpersons = null;
+  let merah;
 
   if (showPersons) {
     xpersons = (
@@ -63,13 +53,22 @@ const App = () => {
         })}
       </div>
     );
-    styleButton.backgroundColor = "red";
+    merah = "toggle";
+  }
+
+  let myClassesName = [];
+  if (persons.length <= 2) {
+    myClassesName.push("red");
+  }
+  if (persons.length <= 1) {
+    myClassesName.push("bold");
   }
 
   return (
     <div className="App">
       <h1>This is my first react App</h1>
-      <button style={styleButton} onClick={togglePersonsHandler}>
+      <p className={myClassesName.join(" ")}> Hello there </p>
+      <button className={merah} id="main" onClick={togglePersonsHandler}>
         Show Persons Button
       </button>
       {xpersons}
