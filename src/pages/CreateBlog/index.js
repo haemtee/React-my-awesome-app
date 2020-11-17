@@ -19,7 +19,7 @@ const CreateBlog = () => {
       <Gap height={20} />
 
       <div className="button-action">
-        <Button title="Save" />
+        <Button title="Save" onClick={() => history.push("/detail-blog")} />
       </div>
     </div>
   );
