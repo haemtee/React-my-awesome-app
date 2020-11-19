@@ -4,20 +4,18 @@ import { RegisterBg } from "../../../assets";
 import { Button, Gap } from "../../atoms";
 import "./blogitem.scss";
 
-const BlogItem = () => {
+const BlogItem = (props) => {
   const history = useHistory();
+  const { image, title, name, date, body } = props;
   return (
     <div className="blog-item">
-      <img className="image-thumb" src={RegisterBg} alt="post" />
+      <img className="image-thumb" src={image} alt="post" />
       <div className="content-detail">
-        <p className="title">Title Blog</p>
-        <p className="author">Author - Date post</p>
-        <p className="body">
-          Exercitation ea laborum sint ad duis est culpa tempor consectetur
-          dolor elit qui mollit. Adipisicing minim Lorem proident nulla sunt
-          nulla consequat ex dolor dolor voluptate eiusmod. Consequat voluptate
-          nostrud exercitation esse culpa cillum adipisicing.
+        <p className="title">{title}</p>
+        <p className="author">
+          {name} - {date}
         </p>
+        <p className="body">{body}</p>
         <Gap height={12} />
         <Button
           title="View Detail"
