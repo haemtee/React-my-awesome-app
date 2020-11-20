@@ -5,7 +5,8 @@ import "./blogitem.scss";
 
 const BlogItem = (props) => {
   const history = useHistory();
-  const { image, title, name, date, body } = props;
+  const { id, image, title, name, date, body } = props;
+
   return (
     <div className="blog-item">
       <img className="image-thumb" src={image} alt="post" />
@@ -14,11 +15,13 @@ const BlogItem = (props) => {
         <p className="author">
           {name} - {date}
         </p>
-        <p className="body">{body}</p>
+        <p className="body">{body.substring(0, 100) + "..."}</p>
         <Gap height={12} />
         <Button
           title="View Detail"
-          onClick={() => history.push("/detail-blog")}
+          onClick={() =>
+            history.push({ pathname: "/detail-blog/", state: { id: id } })
+          }
         />
       </div>
     </div>

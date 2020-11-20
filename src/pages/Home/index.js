@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     Axios.get("http://localhost:4000/v1/blog/posts")
       .then((result) => {
-        console.log(result.data);
+        //console.log(result.data);
         const responseAPI = result.data;
         setDataBlog(responseAPI.data);
       })
@@ -34,6 +34,7 @@ const Home = () => {
           return (
             <BlogItem
               key={blog._id}
+              id={blog._id}
               title={blog.title}
               image={`http://localhost:4000/${blog.image}`}
               body={blog.body}
