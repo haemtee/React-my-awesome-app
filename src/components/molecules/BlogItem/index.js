@@ -5,7 +5,7 @@ import "./blogitem.scss";
 
 const BlogItem = (props) => {
   const history = useHistory();
-  const { id, image, title, name, date, body } = props;
+  const { image, title, name, date, body } = props;
 
   return (
     <div className="blog-item">
@@ -20,7 +20,16 @@ const BlogItem = (props) => {
         <Button
           title="View Detail"
           onClick={() =>
-            history.push({ pathname: "/detail-blog/", state: { id: id } })
+            history.push({
+              pathname: "/detail-blog/",
+              state: {
+                image: image,
+                title: title,
+                name: name,
+                date: date,
+                body: body,
+              },
+            })
           }
         />
       </div>
