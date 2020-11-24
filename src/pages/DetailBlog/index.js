@@ -14,7 +14,7 @@ const DetailBlog = () => {
       <img className="img-cover" src={image} alt="preview" />
       <p className="blog-title">{title}</p>
       <p className="blog-author">
-        {name} - {date}
+        {name} at {date}
       </p>
       <p className="blog-body">{body}</p>
       <Link title="Back to Home" onClick={() => history.push("/")} />
