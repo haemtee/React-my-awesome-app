@@ -5,12 +5,13 @@ import { useHistory } from "react-router-dom";
 import { BlogItem, Button, Gap } from "../../components";
 import "./home.scss";
 
+require("dotenv").config();
+
 const Home = () => {
   const [dataBlog, setDataBlog] = useState([]);
   useEffect(() => {
-    Axios.get("http://localhost:4000/v1/blog/posts")
+    Axios.get(process.env.REACT_APP_BASE_URI + "v1/blog/posts") // || "http://localhost:4000/v1/blog/posts")
       .then((result) => {
-        //console.log(result.data);
         const responseAPI = result.data;
         setDataBlog(responseAPI.data);
       })
@@ -36,7 +37,7 @@ const Home = () => {
               key={blog._id}
               id={blog._id}
               title={blog.title}
-              image={`http://localhost:4000/${blog.image}`}
+              image={process.env.REACT_APP_BASE_URI + blog.image}
               body={blog.body}
               name={blog.author.name}
               date={blog.createdAt}
